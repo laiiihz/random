@@ -55,6 +55,13 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           floatingActionButton: Offstage(offstage: _onlineGet,child: FloatingActionButton.extended(onPressed: (){
+            if(int.parse(_maxNum)<int.parse(_minNum)){
+              var temp=_maxNum;
+              setState(() {
+                _maxNum=_minNum;
+                _minNum=temp;
+              });
+            }
             setState(() {
               if(_zeroOneMode&&!_onlineMode){
                 _normalRandomNum=Random().nextInt(2);
@@ -151,6 +158,7 @@ class _HomePageState extends State<HomePage> {
                         }else{
                           try{
                             print(int.parse(value));
+
                           }catch(e){
                             setState(() {
                               _maxNum='10';

@@ -8,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="random"
+        android:label="真随机数生成器"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
