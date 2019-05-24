@@ -4,6 +4,7 @@ import 'model.dart';
 import 'dart:math';
 import 'package:dio/dio.dart';
 import 'about.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,6 +35,13 @@ class _HomePageState extends State<HomePage> {
               Switch(
                 onChanged: (bool value) {
                   model.setDarkMode(value);
+                  setDark() async {
+                    SharedPreferences shared =
+                        await SharedPreferences.getInstance();
+                    shared.setBool('darkMode', value);
+                  }
+
+                  setDark();
                 },
                 value: model.darkModeOn,
               ),

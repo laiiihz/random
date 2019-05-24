@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'homePage.dart';
 import 'model.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'Splash.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,10 @@ class _MyAppState extends State<MyApp> {
         builder: (context, child, model) {
           return MaterialApp(
             title: '随机游戏',
-            home: HomePage(),
+            home: SplashPage(),
+            routes: <String, WidgetBuilder>{
+              '/HomePage': (BuildContext context) => new HomePage()
+            },
             theme: model.themeData,
           );
         },
